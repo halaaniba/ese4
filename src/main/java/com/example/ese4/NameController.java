@@ -15,7 +15,7 @@ public class NameController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "name", content =
                     {
-                            @Content(mediaType = "applicazione")
+                            @Content(mediaType = "application/string")
                     })
     })
 
@@ -33,10 +33,10 @@ public class NameController {
     })
 
 
-    @Operation(summary = "This method prints the reverse name")
+    @Operation(summary = "reverse name")
     @PostMapping(path = "/getReverseName")
-    public String reverseName(@Parameter(description = "The user reverse name param") @RequestParam(value = "nome", required = true) String nome) {
-        return new StringBuilder(nome).reverse().toString();
+    public String reverseName(@Parameter(description = "reverse name param") @RequestParam(value = "name", required = true) String name) {
+        return new StringBuilder(name).reverse().toString();
     }
 }
 
